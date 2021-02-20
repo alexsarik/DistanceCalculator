@@ -13,3 +13,26 @@ resource "aws_launch_configuration" "web-lc"{
     security_groups = [aws_security_group.instances-sg.id]
 }
 
+resource "aws_autoscaling_group" "web-asg"{
+    availability_zones      = var.availability_zones
+    name                    = var.asg_name
+    max_size                = var.asg_max_size
+    min_size                = var.asg_min_size
+    desired_capacity        = var.asg_desired_capacity
+    force_delete            = var.force_delete
+    launch_configuration    = aws_launch_configuration.web-lc.name
+
+    tags = concat(
+    [
+      {
+        key                 = "Author"
+        value               = "Alexander Sari"
+        propagate_at_launch = var.propagate_at_launch
+      },
+      { key                 = "Date"
+        value               = "19/02/2021"
+        propagate_at_launch = var.propagate_at_launch
+      },
+    ],
+  )
+}
