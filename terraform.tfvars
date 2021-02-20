@@ -2,7 +2,9 @@
 #                 Commons
 #---------------------------------------------
 
-region             = "eu-west-1"
+region = "eu-west-1"
+
+availability_zones = ["eu-west-1a", "eu-west-1b"]
 
 #---------------------------------------------
 #           Launch Configuration
@@ -10,30 +12,30 @@ region             = "eu-west-1"
 
 instance_type = "t2.micro"
 
-ami           = "ami-0fc970315c2d38f01"
+ami = "ami-0fc970315c2d38f01"
 
 #---------------------------------------------
 #            Autoscaling Group
 #---------------------------------------------
 
-asg_name             = "asg-distance-calculator"
+asg_name = "asg-distance-calculator"
 
-asg_max_size         = 5
+asg_max_size = 5
 
-asg_min_size         = 1
+asg_min_size = 1
 
 asg_desired_capacity = 2
 
-force_delete         = true
+force_delete = true
 
-propagate_at_launch  = true
+propagate_at_launch = true
 
 #---------------------------------------------
 #                 RSA Key
 #---------------------------------------------
 
-key_name  = "test-key"
+key_name = "test-key"
 
 algorithm = "RSA"
 
-rsa_bits  = 409
+rsa_bits = 409
