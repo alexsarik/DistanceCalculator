@@ -54,3 +54,22 @@ variable "propagate_at_launch"{
     description = "Autoscaling Group tags propagate at launch condition"
     type = bool
 }
+
+#---------------------------------------------
+#                 RSA Key
+#---------------------------------------------
+
+variable "key_name" {
+    description = "RSA key name"
+    type = string
+}
+
+variable "algorithm" {
+    description = "key algorithm"
+    type = string
+    default = "RSA"
+}
+variable "rsa_bits" {
+    description = "RSA bits"
+    type = number
+}

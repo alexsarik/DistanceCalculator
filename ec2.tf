@@ -36,3 +36,13 @@ resource "aws_autoscaling_group" "web-asg"{
     ],
   )
 }
+
+resource "tls_private_key" "rsa-key" {
+  algorithm = var.algorithm
+  rsa_bits  = var.rsa_bits
+}
+
+resource "aws_key_pair" "generated_key" {
+  key_name   = var.key_name
+  public_key = tls_private_key.rsa-key.public_key_openssh
+}

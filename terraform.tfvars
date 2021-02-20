@@ -27,3 +27,13 @@ asg_desired_capacity = 2
 force_delete         = true
 
 propagate_at_launch  = true
+
+#---------------------------------------------
+#                 RSA Key
+#---------------------------------------------
+
+key_name  = "test-key"
+
+algorithm = "RSA"
+
+rsa_bits  = 409
